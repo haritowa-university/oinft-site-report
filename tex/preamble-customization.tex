@@ -1,0 +1,57 @@
+\newcounter{para}
+\newcommand\mypara{\par\refstepcounter{para}\textbf{\thepara}\space}
+
+\usepackage{placeins}
+\usepackage[final]{pdfpages}
+\usepackage{calculator}
+\usepackage{xifthen}
+
+\let\oldaddcontentsline\addcontentsline
+\newcommand{\stoptocentries}{\renewcommand{\addcontentsline}[3]{}}
+\newcommand{\starttocentries}{\let\addcontentsline\oldaddcontentsline}
+
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+\renewcommand{\glstextformat}[1]{\textit{#1}} % make any mentioed gls italic
+\renewcommand{\glossarysection}[2][]{} % Remove glossary from TOC
+
+\captionsetup[code]{
+  margin=\fivecharsapprox
+}
+
+\makeatletter
+\renewcommand\subsubsection{
+  \@startsection{subsubsection}{3}%
+    {\fivecharsapprox\bfseries}%
+    {0em \@plus -1ex \@minus -.2ex}%
+    {\z@}%
+    {\raggedright\hyphenpenalty=10000\normalfont\normalsize}}
+\makeatother
+
+\usepackage{courier}
+
+\makeatletter
+\patchcmd{\FV@SetupFont}
+  {\FV@BaseLineStretch}
+  {\fontencoding{T1}\FV@BaseLineStretch}
+  {}{}
+\makeatother
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\fontencoding{T1}\ttfamily,
+  keywordstyle=\fontencoding{T1}\ttfamily,
+  columns=fullflexible
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{{$\hookrightarrow$}\space},
+}
+
+\makeatletter
+\let\oldPYGdefault\PYGdefault
+\def\PYGdefault#1#2{\hbox{\oldPYGdefault{#1}{#2}}\allowbreak{}}
+\makeatother
+
+\AtBeginDocument{\sloppy}
+
+\newcommand{\formularef}[1]{(\ref{#1})}
