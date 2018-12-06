@@ -1,0 +1,19 @@
+\subsection{Разработка блока библиография}
+Блиблиография представляет из себя таблицу со списком использованной литературы. Блок начинается с оглавления, сделанного при помощи тега абзаца с соответствующим стилем: \lstinline[language=HTML]{<p class="display-4"></p>}. Для разметки таблицы необходимо было выполнить следующие шаги:
+
+\begin{enumerate}
+	\item Открыть тег таблицы с соответствующим классом \lstinline[language=HTML]{<table class="table table-striped">}.
+	\item Разметить заголовок таблицы.
+	\begin{enumerate}
+		\item Открыть тег заголовка таблицы \lstinline[language=HTML]{<thead>}.
+		\item Поместить необходимые теги столбца в тег строки \lstinline[language=HTML]{<tr><th scope="col">...</th></tr>}.
+		\item Закрыть тег заголовка таблицы \lstinline[language=HTML]{<\thead>}.
+	\end{enumerate}
+	\item Разметить содержимое таблицы.
+	\begin{enumerate}
+		\item Открыть тег содержимого таблицы \lstinline[language=HTML]{<tbody>}.
+		\item Поместить необходимые теги столбца в тег строки \lstinline[language=HTML]{<tr><th>...</th></tr>}.
+		\item Закрыть тег содержимого таблицы \lstinline[language=HTML]{<\tbody>}.
+	\end{enumerate}
+	\item Закрыть тег объявления таблицы \lstinline[language=HTML]{<\table>}.
+\end{enumerate}
