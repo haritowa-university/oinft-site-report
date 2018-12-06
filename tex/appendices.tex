@@ -6,6 +6,18 @@
 \end{center}
 \addcontentsline{toc}{section}{Приложение А (Обязательное) Исходный код}
 
-\lstinputlisting[language=HTML]{inc/src/title.html}
+\lstdefinestyle{HTMLCodeStyle}{
+basicstyle=\footnotesize\ttfamily,
+language={[ANSI]HTML},
+keywordstyle=\bfseries,
+showstringspaces=false,
+morekeywords={include, printf},
+commentstyle={},
+escapeinside=§§,
+escapebegin=\begin{russian}\commentfont,
+escapeend=\end{russian},
+}
+
+\lstinputlisting[style={HTMLCodeStyle}]{inc/src/title.html}
 
 \newpage
